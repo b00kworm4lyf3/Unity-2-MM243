@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class TimedSceneChange : MonoBehaviour{
     public float delaySeconds;
+    public int sceneToLoad = 1;
 
     // Start is called before the first frame update
     void Start(){
-        StartCoroutine(SceneChange());
+        Invoke("SceneChange", delaySeconds);
     }
 
-    IEnumerator SceneChange(){
-        yield return new WaitForSeconds(delaySeconds);
-        SceneManager.LoadScene(1);
+    void SceneChange(){
+        SceneManager.LoadScene(sceneToLoad);
+        return;
     }
 }
