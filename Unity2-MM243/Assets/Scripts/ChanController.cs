@@ -55,6 +55,13 @@ public class ChanController : MonoBehaviour{
             run = false;
         }
 
+        if(Input.GetKey(KeyCode.Space)){
+            chanim.SetBool("jump", true);
+        }
+        else{
+            chanim.SetBool("jump", false);
+        }
+
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
 
