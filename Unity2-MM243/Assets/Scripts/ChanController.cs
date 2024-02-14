@@ -44,16 +44,39 @@ public class ChanController : MonoBehaviour{
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Space)){
+            chanim.Play("JUMP00");
+        }
+
+        if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)){
+            run = true;
+        }
+        else{
+            run = false;
+        }
+
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
 
         chanim.SetFloat("inputX", inputX);
         chanim.SetFloat("inputY", inputY);
+        //chanim.SetBool("run", run);
 
         float moveX = inputX * 20f * Time.deltaTime;
         float moveZ = inputY * 50f * Time.deltaTime;
 
-        rb.velocity = new Vector3(moveX, 0, moveZ);
+        if(moveZ <= 0){
+            moveX = 0f;
+            run = false;
+        }
 
+        chanim.SetBool("run", run);
+
+        if(run == true){
+            moveX *= 3f;
+            moveZ *= 3f;
+        }
+
+        rb.velocity = new Vector3(moveX, 0, moveZ);
     }
 }
