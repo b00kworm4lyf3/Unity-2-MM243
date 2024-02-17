@@ -17,8 +17,21 @@ public class LevelManager : MonoBehaviour{
             GetComponent<CharacterController>().enabled = false;
             transform.position = startPos;
             transform.rotation = startRot;
+            GetComponent<Animator>().Play("LOSE00");
             GetComponent<CharacterController>().enabled = true;
-            
+        }
+
+        else if(other.tag == "Checkpoint"){
+            startPos = other.transform.position;
+            startRot = other.transform.rotation;
+            Destroy(other.gameObject, 0.2f);
+        }
+
+        else if(other.tag == "Goal"){
+            GetComponent<CharacterController>().enabled = false;
+            Destroy(other.gameObject, 0.2f);
+            GetComponent<Animator>().Play("WIN00");
+            GetComponent<CharacterController>().enabled = true;
         }
     }
 }
