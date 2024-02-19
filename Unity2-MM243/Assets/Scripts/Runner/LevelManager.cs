@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class LevelManager : MonoBehaviour{
     Vector3 startPos;
@@ -14,11 +15,7 @@ public class LevelManager : MonoBehaviour{
 
     void OnTriggerEnter(Collider other){
         if(other.tag == "Respawn"){
-            GetComponent<CharacterController>().enabled = false;
-            transform.position = startPos;
-            transform.rotation = startRot;
-            GetComponent<CharacterController>().enabled = true;
-            GetComponent<Animator>().Play("LOSE00");
+            StartCoroutine(Respawn());
         }
 
         else if(other.tag == "Checkpoint"){
@@ -28,10 +25,31 @@ public class LevelManager : MonoBehaviour{
         }
 
         else if(other.tag == "Goal"){
-            //GetComponent<CharacterController>().enabled = false;
+            startPos = other.transform.position;
+            startRot = other.transform.rotation;
             Destroy(other.gameObject, 0.2f);
-            GetComponent<Animator>().Play("WIN00");
-            //GetComponent<CharacterController>().enabled = true;
+            StartCoroutine(Goal());
         }
+    }
+
+    IEnumerator Respawn(){
+        GetComponent<CharacterController>().enabled = false;
+        GetComponent<ThirdPersonController>().enabled = false;
+        transform.position = startPos;
+        transform.rotation = startRot;
+        GetComponent<Animator>().Play("LOSE00");
+        yield return new WaitForSeconds(3.283f);
+        GetComponent<CharacterController>().enabled = true;
+        GetComponent<ThirdPersonController>().enabled = true;
+
+    }
+
+    IEnumerator Goal(){
+        GetComponent<CharacterController>().enabled = false;
+        GetComponent<ThirdPersonController>().enabled = false;
+        GetComponent<Animator>().Play("WIN00");
+        yield return new WaitForSeconds(3.4f);
+        GetComponent<CharacterController>().enabled = true;
+        GetComponent<ThirdPersonController>().enabled = true;
     }
 }
