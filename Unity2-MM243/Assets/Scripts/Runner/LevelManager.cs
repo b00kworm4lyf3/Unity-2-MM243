@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour{
             GetComponent<CharacterController>().enabled = false;
             transform.position = startPos;
             transform.rotation = startRot;
-            GetComponent<Animator>().Play("LOSE00");
             GetComponent<CharacterController>().enabled = true;
+            GetComponent<Animator>().Play("LOSE00");
         }
 
         else if(other.tag == "Checkpoint"){
@@ -28,10 +28,10 @@ public class LevelManager : MonoBehaviour{
         }
 
         else if(other.tag == "Goal"){
-            GetComponent<CharacterController>().enabled = false;
+            //GetComponent<CharacterController>().enabled = false;
             Destroy(other.gameObject, 0.2f);
             GetComponent<Animator>().Play("WIN00");
-            GetComponent<CharacterController>().enabled = true;
+            //GetComponent<CharacterController>().enabled = true;
         }
     }
 }
