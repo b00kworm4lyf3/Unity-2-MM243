@@ -47,8 +47,8 @@ Material:
     - _Refraction_Strength: 0.004
     - _Steps: 0
     m_Colors:
-    - _Deep_Color: {r: 0, g: 0.49752104, b: 0.7735849, a: 0.5372549}
-    - _Horizon_Color: {r: 0.078431, g: 0.09019578, b: 0.11764667, a: 1}
+    - _Deep_Color: {r: 0, g: 0.49752104, b: 0.7735849, a: 0.6313726}
+    - _Horizon_Color: {r: 0.07843097, g: 0.09019574, b: 0.11764664, a: 1}
     - _Shallow_Color: {r: 0, g: 1, b: 0.7725491, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1608041515618243922
