@@ -21,13 +21,15 @@ public class LevelManager : MonoBehaviour{
         else if(other.tag == "Checkpoint"){
             startPos = other.transform.position;
             startRot = other.transform.rotation;
-            Destroy(other.gameObject, 0.2f);
+            other.gameObject.GetComponent<AudioSource>().Play();
+            Destroy(other.gameObject, 0.5f);
         }
 
         else if(other.tag == "Goal"){
             startPos = other.transform.position;
             startRot = other.transform.rotation;
-            Destroy(other.gameObject, 0.2f);
+            other.gameObject.GetComponent<AudioSource>().Play();
+            Destroy(other.gameObject, 0.5f);
             StartCoroutine(Goal());
         }
     }
@@ -49,7 +51,7 @@ public class LevelManager : MonoBehaviour{
         GetComponent<ThirdPersonController>().enabled = false;
         GetComponent<Animator>().Play("WIN00");
         yield return new WaitForSeconds(3.4f);
-        GetComponent<CharacterController>().enabled = true;
         GetComponent<ThirdPersonController>().enabled = true;
+        GetComponent<CharacterController>().enabled = true;
     }
 }
