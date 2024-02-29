@@ -1,11 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour{
     Vector3 startPos;
     Quaternion startRot;
+    public static int lvlNum = 0;
+    public int numLvls = 3;
 
     // Start is called before the first frame update
     void Start(){
@@ -54,6 +56,8 @@ public class LevelManager : MonoBehaviour{
 
         yield return new WaitForSeconds(3.4f);
         EnableController();
+
+        NextLvl();
     }
 
     void DisableController(){
@@ -64,5 +68,15 @@ public class LevelManager : MonoBehaviour{
     void EnableController(){
         GetComponent<ThirdPersonController>().enabled = true;
         GetComponent<CharacterController>().enabled = true;
+    }
+
+    void NextLvl(){
+        lvlNum++;
+
+        if(lvlNum > numLvls){
+            lvlNum = 0;
+        }
+
+        SceneManager.LoadScene(lvlNum);
     }
 }
