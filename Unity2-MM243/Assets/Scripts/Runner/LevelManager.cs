@@ -14,43 +14,54 @@ public class LevelManager : MonoBehaviour{
     }
 
     void OnTriggerEnter(Collider other){
-        if(other.tag == "Respawn"){
+        if(other.CompareTag("Respawn")){
             StartCoroutine(Respawn());
         }
 
-        else if(other.tag == "Checkpoint"){
+        else if(other.CompareTag("Checkpoint")){
             startPos = other.transform.position;
             startRot = other.transform.rotation;
-            other.gameObject.GetComponent<AudioSource>().Play();
-            Destroy(other.gameObject, 0.5f);
+            //other.gameObject.GetComponent<AudioSource>().Play();
+            Destroy(other.gameObject, 0.2f);
         }
 
-        else if(other.tag == "Goal"){
+        else if(other.CompareTag("Goal")){
             startPos = other.transform.position;
             startRot = other.transform.rotation;
-            other.gameObject.GetComponent<AudioSource>().Play();
-            Destroy(other.gameObject, 0.5f);
+            //other.gameObject.GetComponent<AudioSource>().Play();
+            Destroy(other.gameObject, 0.2f);
             StartCoroutine(Goal());
         }
     }
 
     IEnumerator Respawn(){
-        GetComponent<CharacterController>().enabled = false;
-        GetComponent<ThirdPersonController>().enabled = false;
-        transform.position = startPos;
-        transform.rotation = startRot;
+        DisableController();
+        yield return new WaitForSeconds(0.2f);
+
+        transform.SetPositionAndRotation(startPos, startRot);
         GetComponent<Animator>().Play("LOSE00");
+
         yield return new WaitForSeconds(3.283f);
-        GetComponent<CharacterController>().enabled = true;
-        GetComponent<ThirdPersonController>().enabled = true;
+        EnableController();
 
     }
 
     IEnumerator Goal(){
+        DisableController();
+        yield return new WaitForSeconds(0.2f);
+        
+        GetComponent<Animator>().Play("WIN00");
+
+        yield return new WaitForSeconds(3.4f);
+        EnableController();
+    }
+
+    void DisableController(){
         GetComponent<CharacterController>().enabled = false;
         GetComponent<ThirdPersonController>().enabled = false;
-        GetComponent<Animator>().Play("WIN00");
-        yield return new WaitForSeconds(3.4f);
+    }
+
+    void EnableController(){
         GetComponent<ThirdPersonController>().enabled = true;
         GetComponent<CharacterController>().enabled = true;
     }
