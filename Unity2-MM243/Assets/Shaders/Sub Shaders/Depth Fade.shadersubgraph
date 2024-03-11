@@ -372,8 +372,8 @@
     "m_ObjectId": "37d487cc84b84bc3921e82f94cb9ccf2",
     "m_Title": "World Space Scene Position",
     "m_Position": {
-        "x": -891.0000610351563,
-        "y": -47.000022888183597
+        "x": -326.49993896484377,
+        "y": -75.00018310546875
     }
 }
 
@@ -447,10 +447,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -516.75,
-            "y": -13.499969482421875,
-            "width": 0.0,
-            "height": 0.0
+            "x": -151.0,
+            "y": -16.0,
+            "width": 185.0,
+            "height": 95.0
         }
     },
     "m_Slots": [
@@ -700,10 +700,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 993.5,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
+            "x": 903.0,
+            "y": -261.0,
+            "width": 117.0,
+            "height": 77.0
         }
     },
     "m_Slots": [
@@ -994,10 +994,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -666.75,
-            "y": -13.499969482421875,
-            "width": 93.00003051757813,
-            "height": 34.00004577636719
+            "x": -301.0,
+            "y": -16.0,
+            "width": 93.0,
+            "height": 34.0
         }
     },
     "m_Slots": [

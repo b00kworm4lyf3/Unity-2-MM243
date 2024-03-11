@@ -7,7 +7,9 @@ public class LevelManager : MonoBehaviour{
     Vector3 startPos;
     Quaternion startRot;
     public static int lvlNum = 0;
-    public int numLvls = 3;
+    [SerializeField] int numLvls = 3;
+    [SerializeField] GameObject shockwave;
+    [SerializeField] HealthManager healthManager;
 
     // Start is called before the first frame update
     void Start(){
@@ -23,6 +25,7 @@ public class LevelManager : MonoBehaviour{
         else if(other.CompareTag("Checkpoint")){
             startPos = other.transform.position;
             startRot = other.transform.rotation;
+            Instantiate(shockwave, other.transform.position, other.transform.rotation);
             //other.gameObject.GetComponent<AudioSource>().Play();
             Destroy(other.gameObject, 0.2f);
         }
@@ -30,6 +33,7 @@ public class LevelManager : MonoBehaviour{
         else if(other.CompareTag("Goal")){
             startPos = other.transform.position;
             startRot = other.transform.rotation;
+            Instantiate(shockwave, other.transform.position, other.transform.rotation);
             //other.gameObject.GetComponent<AudioSource>().Play();
             Destroy(other.gameObject, 0.2f);
             StartCoroutine(Goal());
@@ -40,15 +44,17 @@ public class LevelManager : MonoBehaviour{
         DisableController();
         yield return new WaitForSeconds(0.2f);
 
+        LivesManager.lives--;
         transform.SetPositionAndRotation(startPos, startRot);
         GetComponent<Animator>().Play("LOSE00");
+        healthManager.ResetHealth();
 
         yield return new WaitForSeconds(3.283f);
         EnableController();
-
     }
 
     IEnumerator Goal(){
+        healthManager.subtractVal = false;
         DisableController();
         yield return new WaitForSeconds(0.2f);
         
@@ -77,6 +83,7 @@ public class LevelManager : MonoBehaviour{
             lvlNum = 0;
         }
 
+        healthManager.subtractVal = true;
         SceneManager.LoadScene(lvlNum);
     }
 }
