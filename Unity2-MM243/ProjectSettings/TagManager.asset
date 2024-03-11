@@ -7,6 +7,9 @@ TagManager:
   - CinemachineTarget
   - Goal
   - Checkpoint
+  - RedShroom
+  - GreenShroom
+  - BlueShroom
   layers:
   - Default
   - TransparentFX

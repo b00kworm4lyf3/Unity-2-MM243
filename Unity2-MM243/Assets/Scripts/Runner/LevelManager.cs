@@ -41,15 +41,15 @@ public class LevelManager : MonoBehaviour{
     }
 
     IEnumerator Respawn(){
+        LivesManager.lives--;
         DisableController();
         yield return new WaitForSeconds(0.2f);
 
-        LivesManager.lives--;
         transform.SetPositionAndRotation(startPos, startRot);
         GetComponent<Animator>().Play("LOSE00");
         healthManager.ResetHealth();
-
         yield return new WaitForSeconds(3.283f);
+
         EnableController();
     }
 

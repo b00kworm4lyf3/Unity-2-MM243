@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class HealthManager : MonoBehaviour{
      public bool subtractVal = true;
     // Start is called before the first frame update
     void Start(){
-        //barVal = 100;
+        barVal = 100;
         bar.value = barVal;
         InvokeRepeating(nameof(SubtractBarVal), 3, 3);
     }
@@ -17,6 +18,8 @@ public class HealthManager : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         if(barVal == 0){
+            subtractVal = false;
+            ResetHealth();
             LivesManager.lives--;
             print(LivesManager.lives);
             StartCoroutine(PlayerReborn("DAMAGED01"));
@@ -31,11 +34,32 @@ public class HealthManager : MonoBehaviour{
         }
     }
 
+    void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("GreenShroom")){
+            barVal += 20;
+            barVal = Mathf.Clamp(barVal, 0, 100);
+            bar.value = barVal;
+            Destroy(other.gameObject);
+        }
+
+        if(other.CompareTag("BlueShroom")){
+            barVal += 5;
+            barVal = Mathf.Clamp(barVal, 0, 100);
+            bar.value = barVal;
+            Destroy(other.gameObject);
+        }
+
+        if(other.CompareTag("RedShroom")){
+            barVal -= 50;
+            barVal = Mathf.Clamp(barVal, 0, 100);
+            bar.value = barVal;
+            Destroy(other.gameObject);
+        }
+    }
+
     public IEnumerator PlayerReborn(string animName){
-        subtractVal = false;
         GetComponent<Animator>().Play(animName);
         yield return new WaitForSeconds(3.5f);
-        ResetHealth();
         subtractVal = true;
     }
 
@@ -44,9 +68,9 @@ public class HealthManager : MonoBehaviour{
         bar.value = barVal;
     }
 
-    public void DepletetHealth(){
-        for(int i = 10; i < 0; i--){
-            SubtractBarVal();
-        }
-    }
+    // public void DepletetHealth(){
+    //     for(int i = 10; i < 0; i--){
+    //         SubtractBarVal();
+    //     }
+    // }
 }

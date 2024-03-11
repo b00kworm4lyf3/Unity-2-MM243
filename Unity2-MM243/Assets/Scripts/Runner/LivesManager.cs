@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LivesManager : MonoBehaviour{
     public static int lives = 3;
-    public GameObject[] livesUI = new GameObject[lives];
+    public GameObject[] livesUI = new GameObject[lives]; 
     // Start is called before the first frame update
     void Start(){
         print(lives);
@@ -29,7 +29,7 @@ public class LivesManager : MonoBehaviour{
         }
     }
 
-    IEnumerator RestartGame(){
+    public IEnumerator RestartGame(){
         yield return new WaitForSeconds(3.5f);
         lives = 3;
         LevelManager.lvlNum = 0;

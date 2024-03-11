@@ -46,16 +46,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Depth: 0.94
+    - _Depth: 2.5
     - _Foam_Blend: 0.05
     - _Horizon_Distance: 0.5
-    - _Intersection_Foam_Blend: 0
-    - _Intersection_Foam_Cutoff: 0
-    - _Intersection_Foam_Depth: 0
-    - _Intersection_Foam_Direction: 0
-    - _Intersection_Foam_Fade: 0
-    - _Intersection_Foam_Speed: 0
-    - _Intersection_Foam_Tiling: 0
+    - _Intersection_Foam_Blend: 0.1
+    - _Intersection_Foam_Cutoff: 0.1
+    - _Intersection_Foam_Depth: 0.1
+    - _Intersection_Foam_Direction: 0.1
+    - _Intersection_Foam_Fade: 0.1
+    - _Intersection_Foam_Speed: 0.1
+    - _Intersection_Foam_Tiling: 0.1
     - _QueueControl: 1
     - _QueueOffset: 0
     - _Refraction_Scale: 0.008
@@ -70,7 +70,7 @@ Material:
     - _Deep_Color: {r: 0, g: 0.49752104, b: 0.7735849, a: 0.6313726}
     - _Foam_Color: {r: 0.7058824, g: 0.77647066, b: 0.70980394, a: 0}
     - _Horizon_Color: {r: 0.07843097, g: 0.09019574, b: 0.11764664, a: 1}
-    - _Intersection_Foam_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Intersection_Foam_Color: {r: 0.7058824, g: 0.77647066, b: 0.70980394, a: 0}
     - _Shallow_Color: {r: 0, g: 1, b: 0.7725491, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1608041515618243922
