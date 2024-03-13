@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour{
 
         transform.SetPositionAndRotation(startPos, startRot);
         GetComponent<Animator>().Play("LOSE00");
-        healthManager.ResetHealth();
+        StartCoroutine(healthManager.ResetHealth());
         yield return new WaitForSeconds(3.283f);
 
         EnableController();

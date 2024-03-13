@@ -19,7 +19,7 @@ public class HealthManager : MonoBehaviour{
     void Update(){
         if(barVal == 0){
             subtractVal = false;
-            ResetHealth();
+            StartCoroutine(ResetHealth());
             LivesManager.lives--;
             print(LivesManager.lives);
             StartCoroutine(PlayerReborn("DAMAGED01"));
@@ -63,9 +63,12 @@ public class HealthManager : MonoBehaviour{
         subtractVal = true;
     }
 
-    public void ResetHealth(){
+    public IEnumerator ResetHealth(){
+        subtractVal = false;
         barVal = 100;
         bar.value = barVal;
+        yield return new WaitForSeconds(3);
+        subtractVal = true;
     }
 
     // public void DepletetHealth(){

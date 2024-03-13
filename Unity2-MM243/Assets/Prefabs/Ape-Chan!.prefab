@@ -883,6 +883,8 @@ GameObject:
   - component: {fileID: 2496064723919207106}
   - component: {fileID: 6049669164019104403}
   - component: {fileID: 7281215474786514156}
+  - component: {fileID: 8490416918042822797}
+  - component: {fileID: 6371370707410095123}
   m_Layer: 8
   m_Name: Ape-Chan!
   m_TagString: Player
@@ -1146,6 +1148,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8237e707bb6fdab4ab3f70691eb9a2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numLvls: 1
+  shockwave: {fileID: 7499334942324254175, guid: 669862a40a3ceee4b99033138f8456da,
+    type: 3}
+  healthManager: {fileID: 8490416918042822797}
+--- !u!114 &8490416918042822797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4358860184989235017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f899d7d1acc78044f99b04bd060ed761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 0}
+  barVal: 100
+  subVal: 20
+  subtractVal: 1
+--- !u!114 &6371370707410095123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4358860184989235017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80691f382ac4a74094e7a587032cc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4539442725701991726
 GameObject:
   m_ObjectHideFlags: 0
