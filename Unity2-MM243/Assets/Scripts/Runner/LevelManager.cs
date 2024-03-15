@@ -10,9 +10,13 @@ public class LevelManager : MonoBehaviour{
     [SerializeField] int numLvls = 3;
     [SerializeField] GameObject shockwave;
     [SerializeField] HealthManager healthManager;
+    public GameObject screenFade;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     // Start is called before the first frame update
     void Start(){
+        screenFade.SetActive(false);
         startPos = transform.position;
         startRot = transform.rotation;
     }
@@ -37,15 +41,22 @@ public class LevelManager : MonoBehaviour{
             //other.gameObject.GetComponent<AudioSource>().Play();
             Destroy(other.gameObject, 0.2f);
             StartCoroutine(Goal());
+
+            if(lvlNum == 1){
+                audioSource.clip = audioClip;
+                audioSource.Play();
+            }
         }
     }
 
     IEnumerator Respawn(){
         LivesManager.lives--;
         DisableController();
-        yield return new WaitForSeconds(0.2f);
-
+        screenFade.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
         transform.SetPositionAndRotation(startPos, startRot);
+        yield return new WaitForSeconds(1.5f);
+        screenFade.SetActive(false);
         GetComponent<Animator>().Play("LOSE00");
         StartCoroutine(healthManager.ResetHealth());
         yield return new WaitForSeconds(3.283f);

@@ -1357,10 +1357,10 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "0588dd736698455e8ef47819ce4a2d97",
     "m_Id": 1,
-    "m_DisplayName": "Out_Vector1",
+    "m_DisplayName": "Exponential",
     "m_SlotType": 1,
     "m_Hidden": false,
-    "m_ShaderOutputName": "OutVector1",
+    "m_ShaderOutputName": "Exponential",
     "m_StageCapability": 2,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
@@ -2965,6 +2965,9 @@
         },
         {
             "m_Id": "0588dd736698455e8ef47819ce4a2d97"
+        },
+        {
+            "m_Id": "e211cb45f9404e9dbdfb85c00711b374"
         }
     ],
     "synonyms": [],
@@ -4263,6 +4266,9 @@
         },
         {
             "m_Id": "effef7b0d92d4e52bfe8212f6ffb643c"
+        },
+        {
+            "m_Id": "9d30087331dc4511a98576c4efd35905"
         }
     ],
     "synonyms": [],
@@ -5454,6 +5460,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "9d30087331dc4511a98576c4efd35905",
+    "m_Id": 2,
+    "m_DisplayName": "Linear",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Linear",
+    "m_StageCapability": 2,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "9d5c33ed2c0d47a4af7ec70cc0514521",
     "m_Id": 0,
@@ -6023,8 +6044,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2327.000244140625,
-            "y": 1540.0,
+            "x": -2465.0,
+            "y": 1535.0,
             "width": 202.0,
             "height": 34.0
         }
@@ -7595,6 +7616,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "e211cb45f9404e9dbdfb85c00711b374",
+    "m_Id": 2,
+    "m_DisplayName": "Linear",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Linear",
+    "m_StageCapability": 2,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "e2780855fc164cc5aecdf182d12b8f46",
     "m_Group": {
@@ -7805,10 +7841,10 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "effef7b0d92d4e52bfe8212f6ffb643c",
     "m_Id": 1,
-    "m_DisplayName": "Out_Vector1",
+    "m_DisplayName": "Exponential",
     "m_SlotType": 1,
     "m_Hidden": false,
-    "m_ShaderOutputName": "OutVector1",
+    "m_ShaderOutputName": "Exponential",
     "m_StageCapability": 2,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
