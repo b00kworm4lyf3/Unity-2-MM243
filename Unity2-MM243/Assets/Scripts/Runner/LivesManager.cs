@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LivesManager : MonoBehaviour{
     public static int lives = 3;
     public GameObject[] livesUI = new GameObject[lives]; 
+    public GameObject screenFade;
     // Start is called before the first frame update
     void Start(){
         print(lives);
@@ -33,6 +34,10 @@ public class LivesManager : MonoBehaviour{
         yield return new WaitForSeconds(3.5f);
         lives = 3;
         LevelManager.lvlNum = 0;
+        screenFade.SetActive(true);
+        yield return new WaitForSeconds(1.3f);
         SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(1.7f);
+        screenFade.SetActive(false);
     }
 }

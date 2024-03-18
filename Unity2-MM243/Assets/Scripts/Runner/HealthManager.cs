@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour{
     public int barVal = 100;
     [SerializeField] int subVal = 10;
      public bool subtractVal = true;
+     public LevelManager levelManager;
     // Start is called before the first frame update
     void Start(){
         barVal = 100;
@@ -58,8 +59,10 @@ public class HealthManager : MonoBehaviour{
     }
 
     public IEnumerator PlayerReborn(string animName){
+        levelManager.DisableController();
         GetComponent<Animator>().Play(animName);
         yield return new WaitForSeconds(3.5f);
+        levelManager.EnableController();
         subtractVal = true;
     }
 

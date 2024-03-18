@@ -668,7 +668,7 @@
                 "m_Node": {
                     "m_Id": "71c8e9f949234089931521561f187556"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 2
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -682,7 +682,7 @@
                 "m_Node": {
                     "m_Id": "71c8e9f949234089931521561f187556"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 2
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -4248,7 +4248,7 @@
     },
     "m_Name": "Depth Fade",
     "m_DrawState": {
-        "m_Expanded": true,
+        "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
             "x": -3445.000244140625,
