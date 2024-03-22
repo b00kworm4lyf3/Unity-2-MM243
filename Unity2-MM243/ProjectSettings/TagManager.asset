@@ -10,6 +10,7 @@ TagManager:
   - RedShroom
   - GreenShroom
   - BlueShroom
+  - Apple
   layers:
   - Default
   - TransparentFX
